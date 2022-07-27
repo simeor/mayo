@@ -14,7 +14,7 @@ const Game = () => {
   const ref = useRef();
 
   const [text, setText] = useState(
-    "Hello, my name is Simeo, a front end developer based in London, lets use the arrows on your keyboard to learn more ..."
+    "Hello, my name is Simeo, a front end developer based in London, lets use the arrows on your keyboard to learn more, hold left or right arrows to run and TAP up to jump ..."
   );
 
   useEffect(() => {
@@ -253,7 +253,10 @@ const Game = () => {
           platform.position.y -= 1;
           break;
         case "ArrowUp":
-          player.velocity.y -= 10;
+          if (player.velocity.y < -10) {
+            break;
+          }
+          player.velocity.y -= 9;
           break;
         case "ArrowDown":
           break;
@@ -278,6 +281,7 @@ const Game = () => {
           break;
         case "ArrowUp":
           player.image = createImage(spriteStand);
+
           break;
         case "ArrowDown":
           break;
