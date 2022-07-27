@@ -89,8 +89,8 @@ const Game = () => {
           y,
         };
         this.image = image;
-        this.width = image.width;
-        this.height = image.height;
+        this.width = 100 || image.width;
+        this.height = 100 || image.height;
         this.action = action || "";
       }
       draw() {
@@ -171,7 +171,7 @@ const Game = () => {
           player.position.y + player.height <= platform.position.y &&
           player.position.y + player.height + player.velocity.y >=
             platform.position.y &&
-          player.position.x + player.width >= platform.position.x + 5 &&
+          player.position.x + player.width >= platform.position.x &&
           player.position.x <= platform.position.x + platform.width
         ) {
           player.velocity.y = 0;
