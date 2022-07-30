@@ -7,3 +7,7 @@ body {
   justify-content: center;
   height: 100vh;
 }
+
+.page-container {
+  padding: 16px;
+}
