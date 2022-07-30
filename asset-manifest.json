@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b55524f0.css",
+    "main.js": "/static/js/main.a238298c.js",
+    "static/js/787.cf01fc4c.chunk.js": "/static/js/787.cf01fc4c.chunk.js",
+    "static/media/spriteStand.png": "/static/media/spriteStand.7f41af0265c7d9dc5352.png",
+    "static/media/spriteRunLeft.png": "/static/media/spriteRunLeft.284adadb2b986088a5a4.png",
+    "static/media/spriteRunRight.png": "/static/media/spriteRunRight.058b8c60c006762c35d5.png",
+    "static/media/hillsCode.png": "/static/media/hillsCode.ac58da103bacd8bf211f.png",
+    "index.html": "/index.html",
+    "main.b55524f0.css.map": "/static/css/main.b55524f0.css.map",
+    "main.a238298c.js.map": "/static/js/main.a238298c.js.map",
+    "787.cf01fc4c.chunk.js.map": "/static/js/787.cf01fc4c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b55524f0.css",
+    "static/js/main.a238298c.js"
+  ]
+}
