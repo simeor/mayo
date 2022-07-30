@@ -1,0 +1,35 @@
+.gameContainer {
+  background-color: lightblue;
+  position: relative;
+  width: 100%;
+}
+
+.textContainer {
+  position: absolute;
+  top: 8px;
+  left: 28px;
+  width: 500px;
+  background-color: rgba(244, 185, 91, 0.6);
+  padding: 8px;
+}
+
+h4 {
+  font-family: "Space Mono", "helvetica";
+}
+
+a {
+  background-color: lightgray;
+}
+
+.hideOnLarge {
+  display: none;
+}
+
+@media only screen and (max-width: 700px) {
+  .hideOnSmall {
+    display: none;
+  }
+  .hideOnLarge {
+    display: block;
+  }
+}

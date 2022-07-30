@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from "react";
-import platform from "../images/platform.png";
 import background from "../images/background.png";
 import hillsCode from "../images/hillsCode.png";
 import spriteRunRight from "../images/spriteRunRight.png";
@@ -9,13 +8,13 @@ import laptop from "../images/laptop.png";
 import hey from "../images/hey.png";
 import kate from "../images/kate.png";
 import linked from "../images/linked.png";
+import style from "./style.module.css";
+import { GAME_STRINGS } from "./strings";
 
 const Game = () => {
   const ref = useRef();
 
-  const [text, setText] = useState(
-    "Hello, my name is Simeo, a front end developer based in London, lets use the arrows on your keyboard to learn more, hold left or right arrows to run and TAP up to jump ..."
-  );
+  const [text, setText] = useState(GAME_STRINGS.default);
 
   useEffect(() => {
     // images init
@@ -177,24 +176,18 @@ const Game = () => {
           player.velocity.y = 0;
 
           if (platform.action === "info") {
-            setText(
-              "After building my first site and enjoying the processes so much, I knew I was due a career change. I gave up my job to explore my passion, and completed the le wagon coding bootcamp. I have been working in FinTech for the last 1.7 years ..."
-            );
+            setText(GAME_STRINGS.info);
           }
 
           if (platform.action === "kate") {
-            setText(
-              "You found Kate, I have been fan-girling on 'that hill' long before Stranger things made her cool ... 🎵 "
-            );
+            setText(GAME_STRINGS.kate);
           }
           if (platform.action === "about") {
-            setText(
-              "This is my laptop, its where I code and test projects using React, Typescript, Cypress and more ..."
-            );
+            setText(GAME_STRINGS.about);
           }
 
           if (platform.action === "linked") {
-            setText("Click the button to visit my profile ...");
+            setText(GAME_STRINGS.linked);
           }
         }
       });
@@ -203,13 +196,13 @@ const Game = () => {
         player.animating = true;
         player.image = createImage(spriteRunRight);
         player.velocity.x = 6;
-        setText("Hey, look for items to jump onto and learn more ->  ...");
+        setText(GAME_STRINGS.jumpInstruction);
       } else if (
         (keys.left.pressed && player.position.x > leftBreakPoint) ||
         (keys.left && scrollOffset === 0 && player.position > 0)
       ) {
         player.velocity.x = -6;
-        setText("You can go left but you wont find much, lets go right ...");
+        setText(GAME_STRINGS.emptyLeftInstruction);
       } else {
         player.velocity.x = 0;
         if (keys.right.pressed) {
@@ -244,13 +237,12 @@ const Game = () => {
           player.animating = true;
           keys.right.pressed = true;
           player.image = createImage(spriteRunRight);
-          platform.position.y += 1;
           break;
         case "ArrowLeft":
           keys.left.pressed = true;
           player.animating = true;
           player.image = createImage(spriteRunLeft);
-          platform.position.y -= 1;
+
           break;
         case "ArrowUp":
           if (player.velocity.y < -10) {
@@ -293,41 +285,26 @@ const Game = () => {
   }, []);
 
   return (
-    <>
-      <div
-        style={{
-          backgroundColor: "lightblue",
-          position: "relative",
-          with: "100%",
-        }}
-      >
+    <div>
+      <div className={style.hideOnLarge}>
+        <h4> This experience is not yet optimized for smaller screens ...</h4>
+      </div>
+      <div className={`${style.gameContainer} ${style.hideOnSmall}`}>
         <canvas ref={ref}></canvas>
-        <div
-          style={{
-            position: "absolute",
-            top: 8,
-            left: 28,
-            width: 500,
-            backgroundColor: "rgba(244, 185, 91, 0.6)",
-            padding: 8,
-          }}
-        >
-          <h4 style={{ fontFamily: "Space Mono" }}>{`${text}`}</h4>
-          {text === "Click the button to visit my profile ..." && (
+        <div className={style.textContainer}>
+          <h4>{`${text}`}</h4>
+          {text === GAME_STRINGS.linked && (
             <a
               rel="noreferrer"
               target="_blank"
               href="https://www.linkedin.com/in/simeo-russo-web-development/"
-              style={{
-                backgroundColor: "lightgray",
-              }}
             >
               More more more ...
             </a>
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
