@@ -9,4 +9,5 @@ export const GAME_STRINGS = {
   jumpInstruction: "Hey, look for items to jump onto and learn more ->  ...",
   emptyLeftInstruction:
     "You can go left but you wont find much, lets go right ...",
+  smallScreens: "This experience is not yet optimized for smaller screens ...",
 };
